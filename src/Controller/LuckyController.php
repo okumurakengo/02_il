@@ -17,6 +17,8 @@ class LuckyController extends Controller
     {
         $number = random_int(0, 100);
 
+        echo 1;
+
         return $this->render('lucky/number.html.twig', array(
             'number' => $number,
         ));
