@@ -20,6 +20,8 @@ class LuckyController extends Controller
         echo 1;
         echo 2;
         echo 3;
+        echo "two";
+        echo "three";
 
         return $this->render('lucky/number.html.twig', array(
             'number' => $number,
