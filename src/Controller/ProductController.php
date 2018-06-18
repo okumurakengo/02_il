@@ -33,4 +33,22 @@ class ProductController extends Controller
 
         return new Response('Saved new product with id '.$product->getId());
     }
+
+    /**
+     * @Route("/product/{id}", name="product_show")
+     */
+    public function show($id)
+    {
+        $product = $this->getDoctrine()
+            ->getRepository(Product::class)
+            ->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        return $this->render('product/show.html.twig', compact('product'));
+    }
 }
